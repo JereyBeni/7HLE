@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main", "master" ]
     tags:
-      - 'v*' # Se dispara con tags o con pushes a main
+      - 'v*'
 
 jobs:
   build-and-release:
@@ -30,25 +30,27 @@ jobs:
       - name: Preparar artefacto para distribución
         run: |
           mkdir release_dist
-          copy target\release\7hle.exe release_dist\7hle.exe
+          copy target\release\seven_hle.exe release_dist\seven_hle.exe
           copy README.md release_dist\README.md
 
-      - name: Subir artefacto de compilación (Para pushes a main)
+      - name: Subir artefacto de compilación
         uses: actions/upload-artifact@v4
         with:
-          name: 7hle-windows-x64
-          path: release_dist/7hle.exe
+          name: seven-hle-windows-x64
+          path: release_dist/seven_hle.exe
 
-      - name: Crear Release en GitHub (Solo cuando hay tag v*)
+      - name: Crear Release en GitHub (Solo con tags v*)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            release_dist/7hle.exe
+            release_dist/seven_hle.exe
             release_dist/README.md
           body: |
-            ### 🚀 7HLE Release oficial
-            Versión autocompilada desde GitHub Actions.
+            ### 🚀 7HLE Release Oficial (v1.1.0)
+            - Soporte de RAM virtual (1 GB heap).
+            - Backends gráficos (D3D9, D3D11, OpenGL).
+            - Subsistema de audio con Rodio.
           draft: false
           prerelease: false
         env:
