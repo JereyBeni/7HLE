@@ -4,14 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# Parser de binarios PE/ELF para leer los ejecutables de Windows
 goblin = "0.8"
-
-# Interfaz gráfica nativa en Rust (sin Electron, puro rendimiento)
 iced = { version = "0.12", features = ["canvas", "tokio"] }
-
-# Diálogo nativo para seleccionar archivos .exe sin romper nada
 rfd = "0.14"
+rodio = "0.17" # Para reproducir audio nativo de forma limpia y rápida
 
 [profile.release]
 opt-level = 3
