@@ -1,0 +1,12 @@
+/workspaces/7HLE/target/x86_64-pc-windows-gnu/release/deps/error_code-5880623ac7c18676.d: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/defs.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/types.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/utils.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/posix.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/system.rs
+
+/workspaces/7HLE/target/x86_64-pc-windows-gnu/release/deps/liberror_code-5880623ac7c18676.rlib: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/defs.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/types.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/utils.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/posix.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/system.rs
+
+/workspaces/7HLE/target/x86_64-pc-windows-gnu/release/deps/liberror_code-5880623ac7c18676.rmeta: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/defs.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/types.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/utils.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/posix.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/system.rs
+
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/lib.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/defs.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/types.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/utils.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/posix.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/error-code-3.4.0/src/system.rs:

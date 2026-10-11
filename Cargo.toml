@@ -1,0 +1,16 @@
+[package]
+name = "seven_hle"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+goblin = "0.8"
+iced = { version = "0.12", features = ["canvas", "tokio"] }
+rfd = "0.14"
+rodio = "0.17"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
