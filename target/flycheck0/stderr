@@ -1,0 +1,368 @@
+    Blocking waiting for file lock on package cache
+   3.776175239s  INFO prepare_target{force=false package_id=seven_hle v0.1.0 (/workspaces/7HLE) target="seven_hle"}: cargo::core::compiler::fingerprint: fingerprint error for seven_hle v0.1.0 (/workspaces/7HLE)/Check { test: false }/TargetInner { name: "seven_hle", doc: true, ..: with_path("/workspaces/7HLE/src/main.rs", Edition2021) }
+   3.776440585s  INFO prepare_target{force=false package_id=seven_hle v0.1.0 (/workspaces/7HLE) target="seven_hle"}: cargo::core::compiler::fingerprint:     err: failed to read `/workspaces/7HLE/target/debug/.fingerprint/seven_hle-0fb0855389da6f59/bin-seven_hle`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::main
+  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  13: std::rt::lang_start::<()>::{closure#0}
+  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/core/src/ops/function.rs:284:13
+  15: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  16: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  17: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  18: std::rt::lang_start_internal::{{closure}}
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:168:24
+  19: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  20: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  21: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  22: std::rt::lang_start_internal
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:164:5
+  23: main
+  24: __libc_start_main
+  25: <unknown>
+   4.362228193s  INFO prepare_target{force=false package_id=rodio v0.17.3 target="rodio"}: cargo::core::compiler::fingerprint: fingerprint error for rodio v0.17.3/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rodio", ["lib"], "/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/rodio-0.17.3/src/lib.rs", Edition2021) }
+   4.362261896s  INFO prepare_target{force=false package_id=rodio v0.17.3 target="rodio"}: cargo::core::compiler::fingerprint:     err: failed to read `/workspaces/7HLE/target/debug/.fingerprint/rodio-f62768ed7d18efec/lib-rodio`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/core/src/ops/function.rs:284:13
+  16: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  17: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  18: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  19: std::rt::lang_start_internal::{{closure}}
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:168:24
+  20: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  21: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  22: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  23: std::rt::lang_start_internal
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:164:5
+  24: main
+  25: __libc_start_main
+  26: <unknown>
+   4.362750798s  INFO prepare_target{force=false package_id=cpal v0.15.3 target="cpal"}: cargo::core::compiler::fingerprint: fingerprint error for cpal v0.15.3/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("cpal", ["lib"], "/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cpal-0.15.3/src/lib.rs", Edition2021) }
+   4.362769763s  INFO prepare_target{force=false package_id=cpal v0.15.3 target="cpal"}: cargo::core::compiler::fingerprint:     err: failed to read `/workspaces/7HLE/target/debug/.fingerprint/cpal-3b0553356a2c701a/lib-cpal`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/core/src/ops/function.rs:284:13
+  17: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  18: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  19: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  20: std::rt::lang_start_internal::{{closure}}
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:168:24
+  21: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  22: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  23: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  24: std::rt::lang_start_internal
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:164:5
+  25: main
+  26: __libc_start_main
+  27: <unknown>
+   4.366274291s  INFO prepare_target{force=false package_id=alsa v0.9.1 target="alsa"}: cargo::core::compiler::fingerprint: fingerprint error for alsa v0.9.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("alsa", ["lib"], "/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alsa-0.9.1/src/lib.rs", Edition2021) }
+   4.366289760s  INFO prepare_target{force=false package_id=alsa v0.9.1 target="alsa"}: cargo::core::compiler::fingerprint:     err: failed to read `/workspaces/7HLE/target/debug/.fingerprint/alsa-ff88983386d57f18/lib-alsa`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/core/src/ops/function.rs:284:13
+  18: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  19: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  20: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  21: std::rt::lang_start_internal::{{closure}}
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:168:24
+  22: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  23: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  24: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  25: std::rt::lang_start_internal
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:164:5
+  26: main
+  27: __libc_start_main
+  28: <unknown>
+   4.366543093s  INFO prepare_target{force=false package_id=alsa-sys v0.3.1 target="alsa_sys"}: cargo::core::compiler::fingerprint: fingerprint error for alsa-sys v0.3.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("alsa_sys", ["lib"], "/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alsa-sys-0.3.1/src/lib.rs", Edition2018) }
+   4.366552150s  INFO prepare_target{force=false package_id=alsa-sys v0.3.1 target="alsa_sys"}: cargo::core::compiler::fingerprint:     err: failed to read `/workspaces/7HLE/target/debug/.fingerprint/alsa-sys-2857978fb9fe5472/lib-alsa_sys`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  10: cargo::ops::cargo_compile::compile_ws
+  11: cargo::ops::cargo_compile::compile_with_exec
+  12: cargo::ops::cargo_compile::compile
+  13: cargo::commands::check::exec
+  14: <cargo::cli::Exec>::exec
+  15: cargo::main
+  16: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  17: std::rt::lang_start::<()>::{closure#0}
+  18: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/core/src/ops/function.rs:284:13
+  19: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  20: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  21: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  22: std::rt::lang_start_internal::{{closure}}
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:168:24
+  23: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  24: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  25: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  26: std::rt::lang_start_internal
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:164:5
+  27: main
+  28: __libc_start_main
+  29: <unknown>
+   4.366839837s  INFO prepare_target{force=false package_id=alsa-sys v0.3.1 target="build-script-build"}: cargo::core::compiler::fingerprint: fingerprint error for alsa-sys v0.3.1/RunCustomBuild/TargetInner { ..: custom_build_target("build-script-build", "/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alsa-sys-0.3.1/build.rs", Edition2018) }
+   4.366848763s  INFO prepare_target{force=false package_id=alsa-sys v0.3.1 target="build-script-build"}: cargo::core::compiler::fingerprint:     err: failed to read `/workspaces/7HLE/target/debug/.fingerprint/alsa-sys-42db41afe72a7cc4/run-build-script-build-script-build`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::custom_build::build_work
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: cargo::core::compiler::compile
+  10: cargo::core::compiler::compile
+  11: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  12: cargo::ops::cargo_compile::compile_ws
+  13: cargo::ops::cargo_compile::compile_with_exec
+  14: cargo::ops::cargo_compile::compile
+  15: cargo::commands::check::exec
+  16: <cargo::cli::Exec>::exec
+  17: cargo::main
+  18: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  19: std::rt::lang_start::<()>::{closure#0}
+  20: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/core/src/ops/function.rs:284:13
+  21: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  22: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  23: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  24: std::rt::lang_start_internal::{{closure}}
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:168:24
+  25: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  26: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  27: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  28: std::rt::lang_start_internal
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:164:5
+  29: main
+  30: __libc_start_main
+  31: <unknown>
+   4.379949926s  INFO prepare_target{force=false package_id=seven_hle v0.1.0 (/workspaces/7HLE) target="seven_hle"}: cargo::core::compiler::fingerprint: fingerprint error for seven_hle v0.1.0 (/workspaces/7HLE)/Check { test: true }/TargetInner { name: "seven_hle", doc: true, ..: with_path("/workspaces/7HLE/src/main.rs", Edition2021) }
+   4.379971766s  INFO prepare_target{force=false package_id=seven_hle v0.1.0 (/workspaces/7HLE) target="seven_hle"}: cargo::core::compiler::fingerprint:     err: failed to read `/workspaces/7HLE/target/debug/.fingerprint/seven_hle-e26ef10c55aec095/test-bin-seven_hle`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: cargo_util::paths::read_bytes
+   1: cargo_util::paths::read
+   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::main
+  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  13: std::rt::lang_start::<()>::{closure#0}
+  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/core/src/ops/function.rs:284:13
+  15: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  16: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  17: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  18: std::rt::lang_start_internal::{{closure}}
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:168:24
+  19: std::panicking::try::do_call
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:589:40
+  20: std::panicking::try
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:552:19
+  21: std::panic::catch_unwind
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panic.rs:359:14
+  22: std::rt::lang_start_internal
+             at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/rt.rs:164:5
+  23: main
+  24: __libc_start_main
+  25: <unknown>
+   Compiling alsa-sys v0.3.1
+error: failed to run custom build command for `alsa-sys v0.3.1`
+note: To improve backtraces for build dependencies, set the CARGO_PROFILE_DEV_BUILD_OVERRIDE_DEBUG=true environment variable to enable debug information generation.
+
+Caused by:
+  process didn't exit successfully: `/workspaces/7HLE/target/debug/build/alsa-sys-51cbe698d8cd79a5/build-script-build` (exit status: 101)
+  --- stdout
+  cargo:rerun-if-env-changed=ALSA_NO_PKG_CONFIG
+  cargo:rerun-if-env-changed=PKG_CONFIG_x86_64-unknown-linux-gnu
+  cargo:rerun-if-env-changed=PKG_CONFIG_x86_64_unknown_linux_gnu
+  cargo:rerun-if-env-changed=HOST_PKG_CONFIG
+  cargo:rerun-if-env-changed=PKG_CONFIG
+  cargo:rerun-if-env-changed=ALSA_STATIC
+  cargo:rerun-if-env-changed=ALSA_DYNAMIC
+  cargo:rerun-if-env-changed=PKG_CONFIG_ALL_STATIC
+  cargo:rerun-if-env-changed=PKG_CONFIG_ALL_DYNAMIC
+  cargo:rerun-if-env-changed=PKG_CONFIG_PATH_x86_64-unknown-linux-gnu
+  cargo:rerun-if-env-changed=PKG_CONFIG_PATH_x86_64_unknown_linux_gnu
+  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_PATH
+  cargo:rerun-if-env-changed=PKG_CONFIG_PATH
+  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR_x86_64-unknown-linux-gnu
+  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR_x86_64_unknown_linux_gnu
+  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_LIBDIR
+  cargo:rerun-if-env-changed=PKG_CONFIG_LIBDIR
+  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR_x86_64-unknown-linux-gnu
+  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR_x86_64_unknown_linux_gnu
+  cargo:rerun-if-env-changed=HOST_PKG_CONFIG_SYSROOT_DIR
+  cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR
+
+  --- stderr
+
+  thread 'main' panicked at /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alsa-sys-0.3.1/build.rs:13:18:
+
+  pkg-config exited with status code 1
+  > PKG_CONFIG_ALLOW_SYSTEM_LIBS=1 PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1 pkg-config --libs --cflags alsa
+
+  pkg-config output:
+    Package alsa was not found in the pkg-config search path.
+    Perhaps you should add the directory containing `alsa.pc'
+    to the PKG_CONFIG_PATH environment variable
+    No package 'alsa' found
+
+  The system library `alsa` required by crate `alsa-sys` was not found.
+  The file `alsa.pc` needs to be installed and the PKG_CONFIG_PATH environment variable must contain its parent directory.
+  The PKG_CONFIG_PATH environment variable is not set.
+
+  HINT: if you have installed the library, try setting PKG_CONFIG_PATH to the directory containing `alsa.pc`.
+
+  stack backtrace:
+     0: __rustc::rust_begin_unwind
+               at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/std/src/panicking.rs:697:5
+     1: core::panicking::panic_fmt
+               at /rustc/6b00bc3880198600130e1cf62b8f8a93494488cc/library/core/src/panicking.rs:75:14
+     2: core::panicking::panic_display
+     3: build_script_build::main
+     4: core::ops::function::FnOnce::call_once
+  note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.

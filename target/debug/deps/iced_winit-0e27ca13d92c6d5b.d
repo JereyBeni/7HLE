@@ -1,0 +1,12 @@
+/workspaces/7HLE/target/debug/deps/iced_winit-0e27ca13d92c6d5b.d: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/application.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/application/state.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/clipboard.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/conversion.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/settings.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/error.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/proxy.rs
+
+/workspaces/7HLE/target/debug/deps/libiced_winit-0e27ca13d92c6d5b.rmeta: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/application.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/application/state.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/clipboard.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/conversion.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/settings.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/error.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/proxy.rs
+
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/lib.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/application.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/application/state.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/clipboard.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/conversion.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/settings.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/error.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/iced_winit-0.12.2/src/proxy.rs:

@@ -1,25 +1,45 @@
+// ============================================================================
+// 7HLE - Windows 7 & XP Compatibility Layer / Emulator
+// ============================================================================
+
 mod pe_loader;
 mod kernel32;
 mod audio;
 mod memory;
 mod graphics;
+mod dx_wrapper;
+mod xp_compat;
 mod ui;
 
 fn main() {
-    println!("=== Iniciando 7HLE (Windows 7 Compatibility Layer) ===");
-    
-    // Asignamos 1 GB de RAM virtual para el entorno (podes cambiar a 512 si querés)
-    let _emulated_ram = memory::VirtualMemory::new(1024); 
+    println!("==================================================");
+    println!("  Starting seven_hle v1.1.0 (Win7 / WinXP Layer)  ");
+    println!("==================================================");
 
-    // Inicializamos subsistemas
+    // 1. Inicialización de la Memoria Virtual (1 GB Heap)
+    let mut vram = memory::VirtualMemoryManager::new(1024);
+    let _sample_ptr = vram.virtual_alloc(
+        0,
+        4096,
+        memory::MemoryAllocationType::MemCommit,
+        memory::MemoryProtection::PageReadWrite,
+    );
+    vram.print_memory_stats();
+
+    // 2. Capa de compatibilidad retro con Windows XP (NT 5.1)
+    let xp_layer = xp_compat::XpCompatLayer::new();
+    let (major, minor, build) = xp_layer.hook_get_version_ex();
+    println!("[Main] Sistema emulado reportando versión: {}.{}.{}", major, minor, build);
+    xp_layer.redirect_legacy_apis();
+
+    // 3. Inicialización del subsistema gráfico y audio
     let _audio = audio::AudioManager::new().ok();
-    let _gfx_d3d = graphics::GraphicsFramework::new(800, 600, "d3d9");
-    let _gfx_gl = graphics::GraphicsFramework::new(800, 600, "opengl");
+    let gfx_d3d = graphics::GraphicsFramework::new(1280, 720, "d3d9");
+    gfx_d3d.direct3d_create_device();
 
-    _gfx_d3d.direct3d_create_device();
-    _gfx_gl.opengl_wgl_create_context();
-
+    // 4. Lanzamiento de la Interfaz Gráfica (Iced UI)
+    println!("[Main] Abriendo panel de configuración de seven_hle...");
     if let Err(e) = ui::run_ui() {
-        eprintln!("Error crítico en 7HLE: {}", e);
+        eprintln!("[Main Error] Error en el loop de UI: {}", e);
     }
 }

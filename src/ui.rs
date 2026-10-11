@@ -1,119 +1,123 @@
-use iced::widget::{button, column, container, row, text, Space, scrollable};
-use iced::{Element, Length, Sandbox, Settings, Color};
-use crate::pe_loader::WinProcess;
+use iced::widget::{button, checkbox, column, pick_list, row, text, Container};
+use iced::{Element, Sandbox, Settings};
 
-pub struct Win7Desktop {
+pub fn run_ui() -> Result<(), iced::Error> {
+    SevenHleUi::run(Settings::default())
+}
+
+struct SevenHleUi {
+    scale_mode: String,
+    speed_mode: String,
+    xp_mode: bool,
     status_message: String,
-    running_app: Option<String>,
-    imports_list: Vec<String>,
 }
 
 #[derive(Debug, Clone)]
-pub enum Message {
-    SelectExeClicked,
-    StartMenuClicked,
+enum Message {
+    ScaleChanged(String),
+    SpeedChanged(String),
+    XpModeToggled(bool),
+    ApplyConfig,
 }
 
-impl Sandbox for Win7Desktop {
+impl Sandbox for SevenHleUi {
     type Message = Message;
 
     fn new() -> Self {
         Self {
-            status_message: "7HLE Listo. Seleccioná un .exe para inspeccionar sus imports.".into(),
-            running_app: None,
-            imports_list: Vec::new(),
+            scale_mode: "Fit to Window".to_string(),
+            speed_mode: "Normal".to_string(),
+            xp_mode: false,
+            status_message: "Esperando configuración...".to_string(),
         }
     }
 
     fn title(&self) -> String {
-        "7HLE - Windows 7 HLE Environment".into()
+        String::from("seven_hle - Panel de Configuración")
     }
 
     fn update(&mut self, message: Message) {
         match message {
-            Message::SelectExeClicked => {
-                if let Some(path) = rfd::FileDialog::new().add_filter("Executable", &["exe"]).pick_file() {
-                    let path_str = path.to_string_lossy();
-                    match WinProcess::load(&path_str) {
-                        Ok(proc) => {
-                            self.status_message = format!("Éxito: {}", proc.info_summary);
-                            self.running_app = Some(path.file_name().unwrap().to_string_lossy().to_string());
-                            self.imports_list = proc.imported_functions;
-                        }
-                        Err(e) => {
-                            self.status_message = format!("Error al parsear PE: {}", e);
-                            self.imports_list.clear();
-                        }
-                    }
-                }
+            Message::ScaleChanged(val) => {
+                self.scale_mode = val;
+                println!("[UI] Scale mode seleccionado: {}", self.scale_mode);
             }
-            Message::StartMenuClicked => {
-                self.status_message = "Menú Inicio de 7HLE desplegado, boludo.".into();
+            Message::SpeedChanged(val) => {
+                self.speed_mode = val;
+                println!("[UI] Perfil de velocidad seleccionado: {}", self.speed_mode);
+            }
+            Message::XpModeToggled(val) => {
+                self.xp_mode = val;
+                println!("[UI] XP Mode (NT 5.1): {}", if self.xp_mode { "Activado" } else { "Desactivado" });
+            }
+            Message::ApplyConfig => {
+                self.status_message = format!(
+                    "¡Config aplicada! Scale: {}, Speed: {}, XP Mode: {}",
+                    self.scale_mode, self.speed_mode, self.xp_mode
+                );
+                // Disparamos la lógica hacia los subsistemas de seven_hle
+                apply_backend_config(&self.scale_mode, &self.speed_mode, self.xp_mode);
             }
         }
     }
 
     fn view(&self) -> Element<Message> {
-        let top_bar = row![
-            button("Iniciar").on_press(Message::StartMenuClicked),
-            text("  7HLE (Windows 7 Compatibility Layer)").size(16),
-        ]
-        .padding(10);
-
-        let mut imports_col = column![text("Funciones Importadas (IAT):").size(16)].spacing(5);
-        if self.imports_list.is_empty() {
-            imports_col = imports_col.push(text("Ningún ejecutable cargado todavía.").size(13));
-        } else {
-            for imp in self.imports_list.iter().take(10) { // Mostramos los primeros 10 para no saturar
-                imports_col = imports_col.push(text(format!(" • {}", imp)).size(12));
-            }
-            if self.imports_list.len() > 10 {
-                imports_col = imports_col.push(text(format!(" ... y {} más.", self.imports_list.len() - 10)).size(12));
-            }
-        }
-
-        let desktop_content = column![
-            text("Escritorio 7HLE").size(24),
-            Space::with_height(10),
-            text(&self.status_message),
-            Space::with_height(10),
-            if let Some(app) = &self.running_app {
-                text(format!("Proceso Activo: {}", app)).size(14)
-            } else {
-                text("Ningún programa cargado en el HLE.").size(14)
-            },
-            Space::with_height(15),
-            scrollable(imports_col).height(120),
-            Space::with_height(15),
-            button("Examinar y cargar .exe...").on_press(Message::SelectExeClicked),
-        ]
-        .padding(20);
-
-        let taskbar = row![
-            text("  [Inicio]  |  7HLE Terminal  |  Sistema").size(12)
-        ]
-        .padding(8);
-
-        let layout = column![
-            top_bar,
-            container(desktop_content)
-                .width(Length::Fill)
-                .height(Length::Fill),
-            taskbar
+        let scales = vec![
+            "Fit to Window".to_string(),
+            "Stretch".to_string(),
+            "1:1 Native".to_string(),
+        ];
+        
+        let speeds = vec![
+            "Faster (High Perf)".to_string(),
+            "Normal".to_string(),
+            "Slow (Compatibility)".to_string(),
         ];
 
-        container(layout)
-            .width(Length::Fill)
-            .height(Length::Fill)
-            .style(|_| container::Appearance {
-                background: Some(Color::from_rgb(0.08, 0.25, 0.45).into()),
-                text_color: Some(Color::WHITE),
-                ..Default::default()
-            })
+        let content = column![
+            text("⚙️ Configuración de seven_hle").size(24),
+            
+            row![
+                text("Scale Mode:     "),
+                pick_list(scales, Some(self.scale_mode.clone()), Message::ScaleChanged)
+            ].spacing(10),
+
+            row![
+                text("Execution Speed:"),
+                pick_list(speeds, Some(self.speed_mode.clone()), Message::SpeedChanged)
+            ].spacing(10),
+
+            checkbox("Activar XP Mode (NT 5.1 Compatibility)", self.xp_mode)
+                .on_toggle(Message::XpModeToggled),
+
+            button("Aplicar Configuración")
+                .on_press(Message::ApplyConfig),
+
+            text(&self.status_message).size(14)
+        ]
+        .spacing(20);
+
+        Container::new(content)
+            .padding(30)
             .into()
     }
 }
 
-pub fn run_ui() -> iced::Result {
-    Win7Desktop::run(Settings::default())
+// Función puente que conecta el estado de la UI con el núcleo del emulador
+fn apply_backend_config(scale: &str, speed: &str, xp_active: bool) {
+    println!("\n--- Aplicando cambios al núcleo de seven_hle ---");
+    
+    if xp_active {
+        println!("[Backend] -> Activando capa de compatibilidad con Windows XP (NT 5.1).");
+    } else {
+        println!("[Backend] -> Operando bajo perfil nativo de Windows 7 (NT 6.1).");
+    }
+
+    match speed {
+        s if s.contains("Faster") => println!("[Backend] -> Modo rápido activado: optimizando ciclos de CPU."),
+        s if s.contains("Slow") => println!("[Backend] -> Modo lento activado: ralentizando ejecución para apps legacy."),
+        _ => println!("[Backend] -> Velocidad normal configurada."),
+    }
+
+    println!("[Backend] -> Renderizado gráfico ajustado a escala: {}\n", scale);
 }
