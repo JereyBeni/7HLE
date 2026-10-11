@@ -1,0 +1,31 @@
+name: Build 7HLE
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-windows:
+    name: Build para Windows (x64)
+    runs-on: windows-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Rust (toolchain estable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache de dependencias Cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Compilar 7HLE en modo Release
+        run: cargo build --release
+
+      - name: Subir binario compilado como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: 7hle-windows-x64
+          path: target/release/7hle.exe
