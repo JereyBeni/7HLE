@@ -1,0 +1,48 @@
+name: Publicar Release de 7HLE
+
+on:
+  push:
+    tags:
+      - 'v*' # Se dispara automáticamente cuando subís un tag como v1.0.0
+
+jobs:
+  build-and-release:
+    name: Compilar y empaquetar para Windows
+    runs-on: windows-latest
+
+    permissions:
+      contents: write # Necesario para crear el Release y subir archivos
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Rust (toolchain estable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache de dependencias Cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Compilar 7HLE en modo Release optimizado
+        run: cargo build --release
+
+      - name: Preparar artefacto para distribución
+        run: |
+          mkdir release_dist
+          copy target\release\7hle.exe release_dist\7hle.exe
+          copy README.md release_dist\README.md
+
+      - name: Crear Release en GitHub y adjuntar binario
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release_dist/7hle.exe
+            release_dist/README.md
+          body: |
+            ### 🚀 7HLE Release oficial
+            Versión autocomilada desde GitHub Actions. 
+            Ejecutá `7hle.exe` directamente en tu PC sin dependencias pesadas.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
