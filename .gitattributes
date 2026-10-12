@@ -1,0 +1,3 @@
+# Ocultar Makefiles de las estadísticas de lenguaje de GitHub
+Makefile linguist-vendored
+makefile linguist-vendored
