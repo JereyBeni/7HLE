@@ -4,10 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-goblin = "0.8"
-iced = { version = "0.12", features = ["canvas", "tokio"] }
-rfd = "0.14"
 rodio = "0.17"
+goblin = "0.6"
+winit = "0.29"
+softbuffer = "0.4"
 
 [profile.release]
 opt-level = 3
